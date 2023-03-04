@@ -41,9 +41,11 @@ function onOpenAndCloseGalleryItem(evt){
   <img width="1400" height="900" src="${evt.target.dataset.source}">`);
   instance.show();
   
-  gallery.addEventListener('keydown', evt => {
+  gallery.addEventListener('keydown', onEscCloseGalleryItem)
+  function onEscCloseGalleryItem(evt){
     if(evt.code === 'Escape'){
       instance.close();
+      gallery.removeEventListener('keydown', a)
     }
-  })
+  }
 }
